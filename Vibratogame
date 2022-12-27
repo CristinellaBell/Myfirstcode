@@ -1,0 +1,53 @@
+# Import necessary modules
+import pygame
+import os
+
+# Initialize pygame
+pygame.init()
+
+# Set up the window
+window_width = 800
+window_height = 600
+window = pygame.display.set_mode((window_width, window_height))
+pygame.display.set_caption('Karaoke Racing')
+
+# Set up the clock
+clock = pygame.time.Clock()
+
+# Load the car images
+car_maria_image = pygame.image.load(os.path.join('images', 'car_maria.png'))
+car_marcellino_image = pygame.image.load(os.path.join('images', 'car_marcellino.png'))
+
+# Set up the cars
+car_maria = pygame.Rect(50, 50, 100, 100)
+car_marcellino = pygame.Rect(750, 550, 100, 100)
+
+# Set up the speedometers
+speedometer_maria = pygame.Rect(50, 150, 100, 50)
+speedometer_marcellino = pygame.Rect(750, 450, 100, 50)
+
+# Set up the singers
+maria_singing = False
+marcellino_singing = False
+
+# Set up the vibrato speeds
+vibrato_speed_maria = 0
+vibrato_speed_marcellino = 0
+
+# Set up the song lists
+maria_songs = ['Song 1', 'Song 2', 'Song 3']
+marcellino_songs = ['Song 4', 'Song 5', 'Song 6']
+
+# Set up the current songs
+current_song_maria = ''
+current_song_marcellino = ''
+
+# Set up the game loop
+while True:
+    # Handle events
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            pygame.quit()
+            sys.exit()
+        elif event.type == pygame.KEYDOWN:
+            # Start singing for Maria
